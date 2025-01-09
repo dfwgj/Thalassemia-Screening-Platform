@@ -61,7 +61,6 @@
         "@chinese-fonts/dymh": "^2.0.1",
         "@varlet/touch-emulator": "^3.3.7",
         "@varlet/ui": "^3.3.7",
-        "gsap": "^3.12.5",
         "pinia": "^2.1.7",
         "vue": "^3.4.19",
         "vue-router": "4"
