@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family:
+        Douyin Sans,
+        Helvetica,
+        Arial,
+        Menlo,
+        Monaco,
+        monospace,
+        sans-serif;
+
+    color-scheme: light dark;
+    color: rgba(0, 0, 0, 0.87);
+
+    /* 文本渲染优化 */
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 隐藏垂直滚动条 */
+* ::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    /* 禁止在浏览器上选中文本内容 */
+    -o-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: #f4f8fb;
+}
