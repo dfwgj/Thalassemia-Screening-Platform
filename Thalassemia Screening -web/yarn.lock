@@ -824,6 +824,14 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.npmmirror.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
+echarts@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.npmmirror.com/echarts/-/echarts-5.6.0.tgz#2377874dca9fb50f104051c3553544752da3c9d6"
+  integrity sha512-oTbVTsXfKuEhxftHqL5xprgLoc0k7uScAwtryCgWF6hPYFLRwOUHiFmHGCBKP5NPFNkDVopOieyUqYGH8Fa3kA==
+  dependencies:
+    tslib "2.3.0"
+    zrender "5.6.1"
+
 electron-to-chromium@^1.5.73:
   version "1.5.76"
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.5.76.tgz#db20295c5061b68f07c8ea4dfcbd701485d94a3d"
@@ -1208,11 +1216,6 @@ graphemer@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmmirror.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
   integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
-
-gsap@^3.12.5:
-  version "3.12.5"
-  resolved "https://registry.npmmirror.com/gsap/-/gsap-3.12.5.tgz#136c02dad4c673b441bdb1ca00104bfcb4eae7f4"
-  integrity sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==
 
 has-flag@^4.0.0:
   version "4.0.0"
@@ -2135,6 +2138,11 @@ ts-interface-checker@^0.1.9:
   resolved "https://registry.npmmirror.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
 
+tslib@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
+  integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
+
 tslib@^2.6.2:
   version "2.8.1"
   resolved "https://registry.npmmirror.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
@@ -2350,3 +2358,10 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmmirror.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zrender@5.6.1:
+  version "5.6.1"
+  resolved "https://registry.npmmirror.com/zrender/-/zrender-5.6.1.tgz#e08d57ecf4acac708c4fcb7481eb201df7f10a6b"
+  integrity sha512-OFXkDJKcrlx5su2XbzJvj/34Q3m6PvyCZkVPHGYpcCJ52ek4U/ymZyfuV1nKE23AyBJ51E/6Yr0mhZ7xGTO4ag==
+  dependencies:
+    tslib "2.3.0"
