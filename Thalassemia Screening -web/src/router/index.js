@@ -14,7 +14,25 @@ const routes = [
             title: '示例页面',
             freeAuth: true
         }
+    },
+    {
+        path: '/sidebar',
+        name: 'sidebar',
+        component: () => import('../pages/sidebar.vue'),
+        meta: {
+            title: '侧边栏页面',
+            freeAuth: true
     }
+},
+{
+    path: '/managerSidebar',
+    name: 'managerSidebar',
+    component: () => import('../pages/managerSidebar.vue'),
+    meta: {
+        title: '管理者侧边栏页面',
+        freeAuth: true
+}
+}
 ];
 
 const router = createRouter({
