@@ -14,6 +14,20 @@ const routes = [
             title: '示例页面',
             freeAuth: true
         }
+    },
+    {
+        path: '/',
+        name: '',
+        redirect: '/historyPages'
+    },
+    {
+        path: '/historyPages',
+        name: 'historyPages',
+        component: () => import('../pages/demo/user/historyPages.vue'),
+        meta: {
+            title: '历史页面',
+            freeAuth: true
+        }
     }
 ];
 
