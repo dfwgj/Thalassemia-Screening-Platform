@@ -14,7 +14,25 @@ const routes = [
             title: '示例页面',
             freeAuth: true
         }
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('../pages/user/login.vue'),
+        meta: {
+            title: '登录页面',
+            freeAuth: true
+        }
+    },
+    {
+        path: '/manageMain',
+        name: 'manageMain',
+        component: () => import('../pages/manage/manageMain.vue'),
+        meta: {
+            title: '管理主页',
+            freeAuth: true
     }
+}
 ];
 
 const router = createRouter({
