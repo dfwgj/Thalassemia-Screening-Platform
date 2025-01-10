@@ -1,7 +1,7 @@
 <template>
-    <div class="flex h-screen">
+    <div class="flex h-screen  bg-green-700">
         <!-- 侧边栏 -->
-        <aside class="w-1/6 bg-custom-teal text-white flex flex-col items-center p-4">
+        <aside class="w-1/6  text-white flex flex-col items-center p-4">
             <!-- 导航链接 -->
             <var-space>
                 <var-avatar src="https://varletjs.org/cat.jpg" />
