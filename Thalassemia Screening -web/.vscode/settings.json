@@ -5,7 +5,7 @@
     "files.associations": {
         "*.css": "tailwindcss"
     },
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "off",
     "files.eol": "\n",
     "git.autofetch": true,
     "git.confirmSync": false,
