@@ -16,6 +16,15 @@ const routes = [
         }
     },
     {
+        path: '/sidebar',
+        name: 'sidebar',
+        component: () => import('../pages/sidebar.vue'),
+        meta: {
+            title: '侧边栏页面',
+            freeAuth: true
+        }
+},
+          {
         path: '/historyPages',
         name: 'historyPages',
         component: () => import('../pages/demo/user/historyPages.vue'),
@@ -41,7 +50,17 @@ const routes = [
             title: '管理主页',
             freeAuth: true
     }
-    }
+    
+},
+{
+    path: '/managerSidebar',
+    name: 'managerSidebar',
+    component: () => import('../pages/managerSidebar.vue'),
+    meta: {
+        title: '管理者侧边栏页面',
+        freeAuth: true
+}
+}
 ];
 
 const router = createRouter({
