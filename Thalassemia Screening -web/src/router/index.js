@@ -18,7 +18,11 @@ const routes = [
     {
         path: '/sidebar',
         name: 'sidebar',
+<<<<<<< HEAD
         component: () => import('../pages/user/sidebar.vue'),
+=======
+        component: () => import('../pages/sidebar.vue'),
+>>>>>>> 4ca2b528bcc76f0a804d7de5dfeedfb7ba6e0c85
         meta: {
             title: '侧边栏页面',
             freeAuth: true
@@ -27,7 +31,11 @@ const routes = [
 {
     path: '/managerSidebar',
     name: 'managerSidebar',
+<<<<<<< HEAD
     component: () => import('../pages/manager/managerSidebar.vue'),
+=======
+    component: () => import('../pages/managerSidebar.vue'),
+>>>>>>> 4ca2b528bcc76f0a804d7de5dfeedfb7ba6e0c85
     meta: {
         title: '管理者侧边栏页面',
         freeAuth: true
