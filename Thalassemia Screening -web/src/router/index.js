@@ -22,7 +22,35 @@ const routes = [
         meta: {
             title: '侧边栏页面',
             freeAuth: true
+        }
+},
+          {
+        path: '/historyPages',
+        name: 'historyPages',
+        component: () => import('../pages/demo/user/historyPages.vue'),
+        meta: {
+            title: '历史页面',
+            freeAuth: true
+        }
+    },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('../pages/user/login.vue'),
+        meta: {
+            title: '登录页面',
+            freeAuth: true
+        }
+    },
+    {
+        path: '/manageMain',
+        name: 'manageMain',
+        component: () => import('../pages/manage/manageMain.vue'),
+        meta: {
+            title: '管理主页',
+            freeAuth: true
     }
+    
 },
 {
     path: '/managerSidebar',
