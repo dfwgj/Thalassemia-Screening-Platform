@@ -4,7 +4,7 @@
         <div class="flex-1 p-4">
             <!-- 标题和搜索框 -->
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-semibold">历史记录</h2>
+                <h2 class="text-3xl font-semibold">用户管理</h2>
                 <div class="relative">
                     <var-input variant="outlined" placeholder="搜索..." v-model="searchValue" class="w-64">
                         <template #prepend-icon>
@@ -34,7 +34,7 @@
                             <td class="px-6 py-1.5 whitespace-nowrap text-center text-base text-gray-500">{{ record.time }}</td>
                             <td class="px-6 py-1.5 whitespace-nowrap text-base text-blue-500 hover:text-blue-800 flex justify-center items-center">
                                 <var-space :size="[10, 10]">
-                                    <var-button block color="#006263" text-color="white" @click="viewRecord(record)" class="w-35" style="border-radius: 8px">查 看</var-button>
+                                    <var-button block color="#006263" text-color="white" @click="viewRecord(record)" class="w-35" style="border-radius: 8px">编 辑</var-button>
                                 </var-space>
                             </td>
                         </tr>
@@ -49,8 +49,12 @@
         <!-- 居中弹窗 -->
         <var-popup v-model:show="showCenterPopup">
             <div class="popup-example-block">
-                <h3 class="text-lg font-semibold mb-4">{{ selectedRecord.name }}</h3>
-                <p>{{ selectedRecord.details }}</p>
+                <h3 class="text-lg font-semibold mb-2">{{ selectedRecord.name }}</h3>
+                <p class="mb-2">性别：{{ selectedRecord.sex }}</p>
+                <p class="mb-2">身体状况：{{ selectedRecord.details }}</p>
+                <var-space :size="[10, 10]">
+                    <var-button type="danger" @click="deleteUser(selectedRecord)">删除</var-button>
+                </var-space>
             </div>
         </var-popup>
     </div>
@@ -58,16 +62,16 @@
 
 <script>
 export default {
-    name: 'historyPage',
+    name: 'managerUser',
     data() {
         return {
             searchValue: '', // 搜索框的值
             list: [
                 // 模拟的历史记录数据
-                { id: 1, name: '宁艺卓', time: '2023-10-01 10:00', details: '宁宁' },
+                { id: 1, name: '宁艺卓', time: '2023-10-01 10:00', sex: '女', details: '非常健康！' },
                 { id: 2, name: '刘知珉', time: '2023-10-02 11:00', details: '刘知珉的详细信息' },
                 { id: 3, name: '内永枝利', time: '2023-10-03 12:00', details: '内永枝利的详细信息' },
-                { id: 4, name: '金旼炡', time: '2023-10-03 12:00', details: '金旼炡的详细信息' }
+                { id: 4, name: '金旼炡', time: '2023-10-04 12:00', details: '金旼炡的详细信息' }
             ],
             currentPage: 1, // 当前页码
             pageSize: 5, // 每页显示的记录数
@@ -94,12 +98,24 @@ export default {
         // 处理分页变化
         handlePageChange(page) {
             this.currentPage = page;
+        },
+        deleteUser(record) {
+            this.list = this.list.filter((user) => user.id !== record.id);
+            this.showCenterPopup = false;
         }
     }
 };
 </script>
 
 <style scoped>
+.table-example-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    padding: 0 16px;
+}
+
 .popup-example-block {
     padding: 24px;
     width: 280px;

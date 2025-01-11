@@ -1,5 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gradient-to-r from-[#27DEDF] to-[#D1FFD1] grid grid-cols-1 md:grid-cols-2">
+    <div class="min-h-screen bg-gradient-to-r from-[#006263] to-[#D1FFD1] grid grid-cols-1 md:grid-cols-2">
+        <!-- #27DEDF -->
         <div class="absolute top-6 left-6">
             <img src="../../assets/logo.svg" alt="Logo" class="h-20 md:h-24 lg:h-28" />
         </div>
@@ -8,25 +9,17 @@
             <p class="text-lg">Thalassemia Screening Platform</p>
         </div>
         <div class="flex items-center justify-center p-4">
-            <div class="bg-white p-8 md:p-10 rounded-lg shadow-lg relative overflow-hidden form-container"
-                :style="{ width: isRegister ? '500px' : '400px', height: isRegister ? '650px' : '450px' }">
+            <div class="bg-white p-8 md:p-10 rounded-lg shadow-lg relative overflow-hidden form-container" :style="{ width: isRegister ? '500px' : '400px', height: isRegister ? '650px' : '450px' }">
                 <transition name="slide" mode="out-in">
                     <var-form v-if="!isRegister" key="login" ref="loginForm" @submit="handleLogin">
                         <h1 class="text-2xl font-bold mb-8 text-center">欢迎登录</h1>
                         <!-- 账号输入框 -->
                         <div class="mb-6">
-                            <var-input size="small" variant="outlined" placeholder="请输入账号" v-model="loginForm.username"
-                                :rules="[(v) => !!v || '账号不能为空', (v) => /^[a-zA-Z0-9]+$/.test(v) || '账号只能包含字母和数字']" />
+                            <var-input size="normal" variant="outlined" placeholder="请输入账号" v-model="loginForm.username" :rules="[(v) => !!v || '账号不能为空', (v) => /^[a-zA-Z0-9]+$/.test(v) || '账号只能包含字母和数字']" />
                         </div>
                         <!-- 密码输入框 -->
                         <div class="mb-4">
-                            <var-input size="small" variant="outlined" placeholder="请输入密码" v-model="loginForm.password"
-                                type="password" :rules="[(v) => !!v || '密码不能为空']" />
-                        </div>
-                        <!-- 记住密码复选框 -->
-                        <div class="mb-6 flex items-center">
-                            <var-checkbox v-model="loginForm.rememberPassword" />
-                            <span class="ml-2 text-sm text-gray-600">记住密码</span>
+                            <var-input size="normal" variant="outlined" placeholder="请输入密码" v-model="loginForm.password" type="password" :rules="[(v) => !!v || '密码不能为空']" />
                         </div>
                         <!-- 登录按钮 -->
                         <div class="mb-12">
@@ -35,60 +28,46 @@
                         <!-- 跳转到注册页面的链接 -->
                         <div class="text-center text-sm text-gray-600">
                             还没有账号？
-                            <a href="#" class="text-blue-500 hover:text-blue-700"
-                                @click.prevent="switchToRegister">点击此处立即注册！</a>
+                            <a href="#" class="text-blue-500 hover:text-blue-700" @click.prevent="switchToRegister">点击此处立即注册！</a>
                         </div>
                     </var-form>
                     <var-form v-else key="register" ref="registerForm" @submit="handleRegister">
                         <h1 class="text-2xl font-bold mb-8 text-center">注册账号</h1>
                         <!-- 用户名输入框 -->
-                        <div class="mb-4">
-                            <var-input size="small" variant="outlined" placeholder="请输入用户名"
-                                v-model="registerForm.username" :rules="[(v) => !!v || '用户名不能为空']" />
+                        <div class="mb-3">
+                            <var-input size="small" variant="outlined" placeholder="请输入6位以上由英文字母和数字组成的账号" v-model="registerForm.username" :rules="[(v) => !!v || '用户名不能为空']" />
                         </div>
                         <!-- 密码输入框 -->
-                        <div class="mb-4">
-                            <var-input size="small" variant="outlined" placeholder="请输入密码"
-                                v-model="registerForm.password" type="password" :rules="[(v) => !!v || '密码不能为空']" />
+                        <div class="mb-3">
+                            <var-input size="small" variant="outlined" placeholder="请输入6位以上由英文字母和数字组成的密码" v-model="registerForm.password" type="password" :rules="[(v) => !!v || '密码不能为空']" />
                         </div>
                         <!-- 真实姓名输入框 -->
-                        <div class="mb-4">
-                            <var-input size="small" variant="outlined" placeholder="请输入真实姓名"
-                                v-model="registerForm.realName" :rules="[(v) => !!v || '真实姓名不能为空']" />
+                        <div class="mb-3">
+                            <var-input size="small" variant="outlined" placeholder="请输入真实姓名" v-model="registerForm.realName" :rules="[(v) => !!v || '真实姓名不能为空']" />
                         </div>
                         <!-- 邮箱输入框 -->
-                        <div class="mb-4">
-                            <var-input size="small" variant="outlined" placeholder="请输入邮箱" v-model="registerForm.email"
-                                :rules="[
-                                    (v) => !!v || '邮箱不能为空',
-                                    (v) => /.+@.+\..+/.test(v) || '邮箱格式不正确',
-                                ]" />
+                        <div class="mb-3">
+                            <var-input size="small" variant="outlined" placeholder="请输入邮箱" v-model="registerForm.email" :rules="[(v) => !!v || '邮箱不能为空', (v) => /.+@.+\..+/.test(v) || '邮箱格式不正确']" />
                         </div>
                         <!-- 电话输入框 -->
-                        <div class="mb-4">
-                            <var-input size="small" variant="outlined" placeholder="请输入电话" v-model="registerForm.phone"
-                                :rules="[
-                                    (v) => !!v || '电话不能为空',
-                                    (v) => /^\d{11}$/.test(v) || '电话格式不正确',
-                                ]" />
+                        <div class="mb-3">
+                            <var-input size="small" variant="outlined" placeholder="请输入电话" v-model="registerForm.phone" :rules="[(v) => !!v || '电话不能为空', (v) => /^\d{11}$/.test(v) || '电话格式不正确']" />
                         </div>
                         <!-- 身份选择框 -->
-                        <div class="mb-8">
-                            <var-select size="small" variant="outlined" placeholder="请选择身份" v-model="registerForm.role"
-                                :rules="[(v) => !!v || '请选择身份']">
+                        <div class="mb-4">
+                            <var-select size="small" variant="outlined" placeholder="请选择身份" v-model="registerForm.role" :rules="[(v) => !!v || '请选择身份']">
                                 <var-option label="医生" value="doctor" />
                                 <var-option label="科研人员" value="research" />
                             </var-select>
                         </div>
                         <!-- 注册按钮 -->
-                        <div class="mb-8">
+                        <div class="mb-6">
                             <var-button block type="primary" native-type="submit">注册</var-button>
                         </div>
                         <!-- 返回登录页面的链接 -->
                         <div class="text-center text-sm text-gray-600">
                             已有账号？
-                            <a href="#" class="text-blue-500 hover:text-blue-700"
-                                @click.prevent="switchToLogin">点击此处登录！</a>
+                            <a href="#" class="text-blue-500 hover:text-blue-700" @click.prevent="switchToLogin">点击此处登录！</a>
                         </div>
                     </var-form>
                 </transition>
@@ -108,8 +87,7 @@ export default {
             dialogMessage: '', // 弹窗消息内容
             loginForm: {
                 username: '',
-                password: '',
-                rememberPassword: false,
+                password: ''
             },
             registerForm: {
                 username: '',
@@ -117,8 +95,8 @@ export default {
                 realName: '',
                 email: '',
                 phone: '',
-                role: '',
-            },
+                role: ''
+            }
         };
     },
     methods: {
@@ -158,8 +136,8 @@ export default {
                     console.log('注册表单验证失败');
                 }
             });
-        },
-    },
+        }
+    }
 };
 </script>
 
