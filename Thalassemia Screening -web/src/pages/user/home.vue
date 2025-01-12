@@ -2,7 +2,7 @@
     <!-- 根容器，使用 flex 布局 -->
     <div class="flex bg-gray-100">
         <!-- 主内容区域 -->
-        <div class="p-8">
+        <div class="p-7">
             <!-- 返回按钮 -->
             <div class="fixed left-[18vw]">
                 <var-button type="info" round color="#006263" style="width: 30px; height: 30px" @click="handleLeftArrow">
@@ -16,7 +16,7 @@
                     &#62;
                 </var-button>
             </div>
-            <div class="w-[81vw] h-[70vh] mt-12 grid grid-cols-2 gap-8">
+            <div class="w-[80vw] h-[70vh] mt-12 grid grid-cols-2 gap-8">
                 <!--第一页：上传图片页-->
                 <div class="rounded-xl shadow-md flex flex-col items-center justify-center bg-white h-[35vh]">
                     <!-- 上传按钮 -->
