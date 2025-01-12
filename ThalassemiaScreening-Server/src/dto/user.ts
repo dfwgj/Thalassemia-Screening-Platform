@@ -12,7 +12,7 @@ export class UserDTO {
   identity: string;
   @Rule(RuleType.number().min(1).max(120))
   age: number;
-  @Rule(requiredString.min(1).max(10))
+  @Rule(RuleType.string().min(1).max(10))
   sex: string;
   @Rule(requiredString.email())
   email: string;

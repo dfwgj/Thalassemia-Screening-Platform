@@ -10,7 +10,7 @@
             </template>
         </var-card>
         <var-card class="pt-4 flex" title="标题 Title" subtitle="副标题 Subtitle">
-            <var-input placeholder="请输入学号" v-model="studentId" />
+            <var-input placeholder="请输入学号" v-model=" account" />
             <var-input placeholder="请输入密码" type="number" v-model="password" />
             <div class="flex justify-end">
                 <var-button class="mt-4" type="primary" @click="summit()">登录</var-button>
@@ -34,7 +34,7 @@ export default {
     data() {
         // 定义组件的响应式数据
         return {
-            studentId: '',
+            account: '',
             password: '',
             token: '',
             file: [], // 用于存储选中的文件
@@ -54,7 +54,7 @@ export default {
         //登录
         async summit() {
             const res = await this.$api.auth.login({
-                studentId: this.studentId,
+                account: this. account,
                 password: this.password
             });
             if (res) {
@@ -62,6 +62,7 @@ export default {
             } else {
                 alert('登录失败，请检查学号和密码');
             }
+            
         },
         //上传图片
         async uploadImg() {

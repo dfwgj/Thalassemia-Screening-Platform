@@ -11,11 +11,11 @@
         <div class="flex items-center justify-center p-4">
             <div class="bg-white p-8 md:p-10 rounded-lg shadow-lg relative overflow-hidden form-container" :style="{ width: isRegister ? '500px' : '400px', height: isRegister ? '650px' : '450px' }">
                 <transition name="slide" mode="out-in">
-                    <var-form v-if="!isRegister" key="login" ref="loginForm" @submit="handleLogin">
+                    <var-form v-if="!isRegister" key="login" ref="loginForm">
                         <h1 class="text-2xl font-bold mb-8 text-center">欢迎登录</h1>
                         <!-- 账号输入框 -->
                         <div class="mb-6">
-                            <var-input size="normal" variant="outlined" placeholder="请输入账号" v-model="loginForm.username" :rules="[(v) => !!v || '账号不能为空', (v) => /^[a-zA-Z0-9]+$/.test(v) || '账号只能包含字母和数字']" />
+                            <var-input size="normal" variant="outlined" placeholder="请输入账号" v-model="loginForm.account" :rules="[(v) => !!v || '账号不能为空', (v) => /^[a-zA-Z0-9]+$/.test(v) || '账号只能包含字母和数字']" />
                         </div>
                         <!-- 密码输入框 -->
                         <div class="mb-4">
@@ -23,7 +23,7 @@
                         </div>
                         <!-- 登录按钮 -->
                         <div class="mb-12">
-                            <var-button block type="primary" native-type="submit">登录</var-button>
+                            <var-button block type="primary" @click="handleLogin">登录</var-button>
                         </div>
                         <!-- 跳转到注册页面的链接 -->
                         <div class="text-center text-sm text-gray-600">
@@ -31,7 +31,7 @@
                             <a href="#" class="text-blue-500 hover:text-blue-700" @click.prevent="switchToRegister">点击此处立即注册！</a>
                         </div>
                     </var-form>
-                    <var-form v-else key="register" ref="registerForm" @submit="handleRegister">
+                    <var-form v-else key="register" ref="registerForm">
                         <h1 class="text-2xl font-bold mb-8 text-center">注册账号</h1>
                         <!-- 用户名输入框 -->
                         <div class="mb-3">
@@ -62,7 +62,7 @@
                         </div>
                         <!-- 注册按钮 -->
                         <div class="mb-6">
-                            <var-button block type="primary" native-type="submit">注册</var-button>
+                            <var-button block type="primary" @click="handleRegister">注册</var-button>
                         </div>
                         <!-- 返回登录页面的链接 -->
                         <div class="text-center text-sm text-gray-600">
@@ -86,7 +86,7 @@ export default {
             showDialog: false, // 控制弹窗显示
             dialogMessage: '', // 弹窗消息内容
             loginForm: {
-                username: '',
+                account: '',
                 password: ''
             },
             registerForm: {
@@ -115,27 +115,24 @@ export default {
             });
         },
         // 处理登录逻辑
-        handleLogin() {
-            this.$refs.loginForm.validate((valid) => {
-                if (valid) {
-                    console.log('登录表单数据:', this.loginForm);
-                } else {
-                    console.log('登录表单验证失败');
-                }
+        async handleLogin() {
+            console.log('登录表单数据:', this.loginForm);
+            if (!this.loginForm.account || !this.loginForm.password) {
+                alert('账号和密码不能为空！');
+                return; // 如果有字段为空，则不执行后续代码
+            }
+            const res = await this.$api.auth.login({
+                account: this.loginForm.account,
+                password: this.loginForm.password
             });
+            if(res){
+                this.$router.push('/user/home');
+            }else{
+                alert('账号或密码错误！');
+            }
         },
         // 处理注册逻辑
         handleRegister() {
-            this.$refs.registerForm.validate((valid) => {
-                if (valid) {
-                    console.log('注册表单数据:', this.registerForm);
-                    // 显示弹窗
-                    this.dialogMessage = '你的注册申请已提交！结果将发送邮件通知你！';
-                    this.showDialog = true;
-                } else {
-                    console.log('注册表单验证失败');
-                }
-            });
         }
     }
 };

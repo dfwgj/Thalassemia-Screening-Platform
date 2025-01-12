@@ -7,14 +7,13 @@
             <div class="top-[100px] left-[-250px] flex justify-center items-center text-white p-4"></div>
             <!-- 个人信息 -->
             <div class="flex justify-center items-center h-[calc(100%-68px)] p-4" style="margin-top: 80px; margin-left: 10px">
-                <div class="max-w-[800px] w-full">
+                <div class=" w-full">
                     <h1 class="text-xl font-bold mb-4">个人信息</h1>
                     <!-- 姓名模块 -->
-                    <div class="flex flex-wrap gap-32 mb-4">
+                    <div class="flex  gap-32 mb-4">
                         <div class="flex items-center space-x-4">
                             <div>姓名</div>
-                            <var-space direction="row" size="mini" />
-                            <var-input v-model="name" disabled class="border border-gray-300 rounded px-3 py-2 text-sm text-gray-700 bg-gray-50 transition-colors" />
+                            <var-input variant="outlined"  v-model="name" disabled size="small" class="bg-white" />
                         </div>
                         <!-- 年龄模块 -->
                         <div class="flex items-center space-x-4">
@@ -26,7 +25,6 @@
                     <div class="flex flex-wrap gap-32 mb-4">
                         <div class="flex items-center space-x-4">
                             <div>性别</div>
-                            <var-space direction="row" size="mini" />
                             <var-input v-model="gender" disabled class="border border-gray-300 rounded px-3 py-2 text-sm text-gray-700 bg-gray-50 transition-colors" />
                         </div>
                         <!-- 身份模块 -->

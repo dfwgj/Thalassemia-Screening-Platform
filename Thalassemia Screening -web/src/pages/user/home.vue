@@ -67,7 +67,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!--第四页：生成报告页-->
                 <div class="rounded-xl shadow-md flex items-center justify-center bg-white h-[35vh]">
                     <!-- 生成报告按钮 -->
